@@ -18,8 +18,7 @@ public class PersonBuilder {
     }
     public PersonBuilder setAge(int age) {
         if (age < 0) {
-            IllegalArgumentException ex = new IllegalArgumentException("Age cannot be less than 0");
-            throw ex;
+            throw new IllegalArgumentException("Age cannot be less than 0");
         }
         this.age = age;
         return this;
@@ -41,11 +40,9 @@ public class PersonBuilder {
             if (this.surname == null){
                 sb.append("surname is empty");
             }
-            IllegalStateException ex = new IllegalStateException(sb.toString());
-            throw ex;
+            throw new IllegalStateException(sb.toString());
         }
-        Person p = new Person(name, surname, age, city);
-        return p;
+        return new Person(name, surname, age, city);
     }
 
 }
